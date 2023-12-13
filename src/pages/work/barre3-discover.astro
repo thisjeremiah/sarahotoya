@@ -1,0 +1,14 @@
+---
+import Layout from "../../layouts/Layout.astro";
+---
+
+<Layout>
+  <section id="discover" class="p-10 bg-yellow-100 rounded-50">
+    <h2 class="mb-3 text-lg font-medium">{content.title}</h2>
+    {
+      content.description.map((paragraph) => (
+        <p class="mb-3" set:html={paragraph} />
+      ))
+    }
+  </section>
+</Layout>

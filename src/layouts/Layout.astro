@@ -1,9 +1,5 @@
 ---
-interface Props {
-	title: string;
-}
 
-const { title } = Astro.props;
 ---
 
 <!doctype html>
@@ -14,15 +10,21 @@ const { title } = Astro.props;
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
+		<title>sarah otoya</title>
 	</head>
 	<body>
-		<slot />
+		<main class="p-8">
+			<h1 class="px-10 mb-5 text-2xl font-semibold">sarah otoya</h1>
+			<slot />
+		</main>
 	</body>
+	<footer class="px-[4.5rem]">
+		<p class="font-semibold">sarah otoya • designer</p>
+		<p class="text-[#272727]/50">website coded by my husband</p>
+	</footer>
 </html>
 <style is:global>
 	html {
 		font-family: system-ui, sans-serif;
-		background: white;
 	}
 </style>

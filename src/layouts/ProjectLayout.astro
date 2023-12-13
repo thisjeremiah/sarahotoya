@@ -1,0 +1,14 @@
+---
+import Layout from "./layout.astro";
+
+const { title } = Astro.props;
+---
+
+<Layout>
+  <section id="discover" class="p-10 bg-yellow-100 rounded-50">
+    <h2 class="mb-3 text-lg font-medium">{title}</h2>
+    <div class="[&_h3]:font-semibold">
+      <slot />
+    </div>
+  </section>
+</Layout>
