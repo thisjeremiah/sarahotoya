@@ -1,5 +1,16 @@
 ---
-
+const links = [
+	{
+		title: "linkedin",
+		link: "https://www.linkedin.com/in/sarah-r-8676a0103/",
+		target: "_blank",
+	},
+	{
+		title: "contact",
+		link: "mailto:skracker@gmail.com",
+		target: "_blank",
+	},
+];
 ---
 
 <!doctype html>
@@ -14,13 +25,26 @@
 	</head>
 	<body>
 		<main class="p-8">
-			<h1 class="px-10 mb-5 text-2xl font-semibold">sarah otoya</h1>
+			<a href="/">
+				<h1 class="px-10 mb-5 text-2xl font-semibold">sarah otoya</h1>
+			</a>
 			<slot />
 		</main>
 	</body>
-	<footer class="px-[4.5rem]">
-		<p class="font-semibold">sarah otoya • designer</p>
-		<p class="text-[#272727]/50">website coded by my husband</p>
+	<footer class="flex flex-col sm:flex-row sm:justify-between px-[4.5rem]">
+		<div>
+			<p class="font-semibold">sarah otoya • designer</p>
+			<p class="text-[#272727]/50">website coded by my husband</p>
+		</div>
+		<div class="flex gap-2">
+			{
+				links.map((link) => (
+					<a href={link.link} target={link.target} class="underline">
+						{link.title}
+					</a>
+				))
+			}
+		</div>
 	</footer>
 </html>
 <style is:global>

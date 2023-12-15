@@ -1,6 +1,11 @@
 ---
-import Layout from "../layouts/layout.astro";
+import { getCollection } from "astro:content";
+import Layout from "../layouts/Layout.astro";
 import ArrowIcon from "../components/ArrowIcon.astro";
+
+const articles = await getCollection("projects", (item) =>
+	item.slug.endsWith("/article"),
+);
 
 const aboutSection = {
 	title: "about",
@@ -9,28 +14,11 @@ const aboutSection = {
 
 const selectedWorkSection = {
 	title: "selected work",
-	works: [
-		{
-			company: "barre3",
-			title: "redesigning the online subscription",
-			link: "/projects/barre3-discover",
-		},
-		{
-			company: "barre3",
-			title: "creating a new onboarding experience",
-			link: "/work/barre3-onboarding",
-		},
-		{
-			company: "barre3",
-			title: "designing 21 days to better sleep",
-			link: "/work/barre3-sleep",
-		},
-		{
-			company: "rejuvenation",
-			title: "developing a digital brand style guide",
-			link: "/work/rejuvenation-style-guide",
-		},
-	],
+	works: articles.map((article) => ({
+		company: article.data.company,
+		title: article.data.description,
+		link: `/projects/${article.slug.split("/")[0]}`,
+	})),
 };
 
 const resumeSection = {
@@ -60,19 +48,6 @@ const resumeSection = {
 	link: {
 		text: "see full resume",
 		url: "/resume",
-	},
-};
-
-const footerLinks = {
-	linkedin: {
-		title: "linkedin",
-		link: "https://www.linkedin.com/in/sarah-r-8676a0103/",
-		target: "_blank",
-	},
-	contact: {
-		title: "contact",
-		link: "mailto:skracker@gmail.com",
-		target: "_blank",
 	},
 };
 

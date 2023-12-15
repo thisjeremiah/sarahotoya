@@ -1,25 +1,64 @@
 ---
-import ProjectLayout from "../../layouts/ProjectLayout.astro";
 import { getEntry, getCollection } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
 
 export async function getStaticPaths() {
   const collection = await getCollection("projects");
 
-  return collection.map((item) => ({
-    params: {
-      slug: item.slug,
-    },
-  }));
+  type Slug = (typeof collection)[number]["slug"];
+
+  type ArticleSlug = Slug extends
+    | `${infer Prefix}/intro`
+    | `${infer Prefix}/article`
+    ? Prefix
+    : Slug;
+
+  return collection
+    .filter((item) => !item.slug.endsWith("/intro"))
+    .map((item) => ({
+      params: {
+        slug: item.slug.split("/")[0] as ArticleSlug,
+      },
+    }));
 }
 
 const { slug } = Astro.params;
 
-const article = await getEntry("projects", slug);
-const intro = await getEntry("projects", `${slug}-intro`);
+const intro = await getEntry("projects", `${slug}/intro`);
+const article = await getEntry("projects", `${slug}/article`);
 
-const { Content } = await intro.render();
+const articles = await getCollection("projects", (item) => {
+  return item.slug !== article.slug && item.slug.endsWith("/article");
+});
+
+const Intro = await intro.render();
+const Article = await article.render();
 ---
 
-<ProjectLayout title={article.data.title}>
-  <Content />
-</ProjectLayout>
+<Layout>
+  <div class="flex flex-col items-start lg:flex-row lg:gap-8">
+    <section class="p-10 bg-yellow-100 lg:max-w-sm xl:max-w-lg rounded-50">
+      <h2 class="mb-3 text-lg font-medium">{article.data.title}</h2>
+      <div class="[&_h3]:font-semibold whitespace-pre-line">
+        <Intro.Content />
+      </div>
+    </section>
+    <article
+      class="max-w-prose mx-auto whitespace-pre-line [&_p:has(img)]:flex [&_p:has(img)]:justify-center mt-3"
+    >
+      <Article.Content />
+      <div class="flex justify-center mt-10 gap-4">
+        {
+          articles.map((item) => (
+            <a
+              href={`/projects/${item.slug.split("/")[0]}`}
+              class="inline-block underline"
+            >
+              {item.data.title}
+            </a>
+          ))
+        }
+      </div>
+    </article>
+  </div>
+</Layout>
