@@ -32,32 +32,34 @@ const links = [
 
 	<body class="mx-auto max-w-7xl">
 		<main class="px-4 pt-8 md:px-8">
-			<h1 class="mb-5 ml-4 text-2xl font-semibold w-fit md:ml-2">
+			<h1 class="mb-5 ml-8 text-2xl font-semibold w-fit md:ml-10">
 				<a href="/"> sarah otoya</a>
 			</h1>
+			<slot />
 		</main>
-		<slot />
 	</body>
+
+	<footer
+		class="flex pt-8 pb-10 flex-col sm:flex-row sm:justify-between px-14 md:px-[4.5rem]"
+	>
+		<div>
+			<a href="/">
+				<p class="font-semibold">sarah otoya • designer</p>
+			</a>
+			<p class="text-[#272727]/50">website coded by my husband</p>
+		</div>
+
+		<div class="flex gap-2">
+			{
+				links.map((link) => (
+					<a href={link.link} target={link.target} class="underline">
+						{link.title}
+					</a>
+				))
+			}
+		</div>
+	</footer>
 </html>
-<footer
-	class="flex pt-8 pb-10 flex-col sm:flex-row sm:justify-between px-14 md:px-[4.5rem]"
->
-	<div>
-		<a href="/">
-			<p class="font-semibold">sarah otoya • designer</p>
-		</a>
-		<p class="text-[#272727]/50">website coded by my husband</p>
-	</div>
-	<div class="flex gap-2">
-		{
-			links.map((link) => (
-				<a href={link.link} target={link.target} class="underline">
-					{link.title}
-				</a>
-			))
-		}
-	</div>
-</footer>
 
 <style is:global>
 	html {
