@@ -1,4 +1,6 @@
 ---
+import { ViewTransitions } from "astro:transitions";
+
 const links = [
 	{
 		title: "linkedin",
@@ -28,6 +30,7 @@ const links = [
 		<meta name="theme-color" content="#ffffff" />
 		<meta name="generator" content={Astro.generator} />
 		<title>sarah otoya</title>
+		<ViewTransitions />
 	</head>
 
 	<body class="mx-auto max-w-7xl">
@@ -37,32 +40,30 @@ const links = [
 			</h1>
 			<slot />
 		</main>
-	</body>
+		<footer
+			class="flex pt-8 pb-10 flex-col sm:flex-row sm:justify-between px-14 md:px-[4.5rem]"
+		>
+			<div>
+				<a href="/">
+					<p class="font-semibold">sarah otoya • designer</p>
+				</a>
+				<p class="text-[#272727]/50">website coded by my husband</p>
+			</div>
 
-	<footer
-		class="flex pt-8 pb-10 flex-col sm:flex-row sm:justify-between px-14 md:px-[4.5rem]"
-	>
-		<div>
-			<a href="/">
-				<p class="font-semibold">sarah otoya • designer</p>
-			</a>
-			<p class="text-[#272727]/50">website coded by my husband</p>
-		</div>
-
-		<div class="flex gap-2">
-			{
-				links.map((link) => (
-					<a href={link.link} target={link.target} class="underline">
-						{link.title}
-					</a>
-				))
+			<div class="flex gap-2">
+				{
+					links.map((link) => (
+						<a href={link.link} target={link.target} class="underline">
+							{link.title}
+						</a>
+					))
+				}
+			</div>
+		</footer>
+		<style is:global>
+			html {
+				font-family: system-ui, sans-serif;
 			}
-		</div>
-	</footer>
+		</style>
+	</body>
 </html>
-
-<style is:global>
-	html {
-		font-family: system-ui, sans-serif;
-	}
-</style>
