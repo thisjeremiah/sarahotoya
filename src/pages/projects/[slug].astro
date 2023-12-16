@@ -37,31 +37,30 @@ const Article = await article.render();
 
 <Layout>
   <div class="flex flex-col items-start lg:flex-row lg:gap-8">
-    <section
-      class="p-10 bg-yellow-100 lg:max-w-sm xl:max-w-lg rounded-50"
-    >
+    <section class="p-10 bg-yellow-100 lg:max-w-sm xl:max-w-lg rounded-50">
       <h2 class="mb-3 text-lg font-medium">{article.data.title}</h2>
       <div class="[&_h3]:font-semibold whitespace-pre-line">
         <Intro.Content />
       </div>
     </section>
+
     <article
-      class="max-w-prose mx-auto whitespace-pre-line [&_p:has(img)]:flex [&_p:has(img)]:justify-center mt-3 p-10"
+      class="max-w-prose mx-auto whitespace-pre-line [&_p:has(img)]:flex [&_p:has(img)]:justify-center mt-3 p-10 border-yellow-500 border-2 rounded-50"
     >
       <Article.Content />
-    </article>
-  </div>
 
-  <div class="flex flex-wrap justify-center px-5 gap-4 md:my-10 md:gap-6">
-    {
-      articles.map((item) => (
-        <a
-          href={`/projects/${item.slug.split("/")[0]}`}
-          class="inline-block text-center underline underline-offset-2"
-        >
-          {item.data.title}
-        </a>
-      ))
-    }
+      <div class="flex flex-wrap justify-center mt-10 gap-4 md:my-10 md:gap-6">
+        {
+          articles.map((item) => (
+            <a
+              href={`/projects/${item.slug.split("/")[0]}`}
+              class="inline-block text-center underline underline-offset-2"
+            >
+              {item.data.title}
+            </a>
+          ))
+        }
+      </div>
+    </article>
   </div>
 </Layout>

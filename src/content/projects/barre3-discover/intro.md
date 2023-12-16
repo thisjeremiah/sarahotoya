@@ -1,5 +1,4 @@
 ---
-
 ---
 
 The Discover page is the first page users see when they log on to the barre3 online experience. The page was originally designed back in 2019 and hadn’t had a large overhaul in nearly four years when I started on this project.
