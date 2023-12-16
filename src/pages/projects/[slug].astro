@@ -50,12 +50,12 @@ const Article = await article.render();
     </article>
   </div>
 
-  <div class="flex justify-center mt-10 gap-4">
+  <div class="flex flex-wrap justify-center px-5 gap-4 md:my-10 md:gap-6">
     {
       articles.map((item) => (
         <a
           href={`/projects/${item.slug.split("/")[0]}`}
-          class="inline-block underline"
+          class="inline-block text-center underline underline-offset-2"
         >
           {item.data.title}
         </a>
