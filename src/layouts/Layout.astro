@@ -23,17 +23,22 @@ const links = [
 		<meta name="generator" content={Astro.generator} />
 		<title>sarah otoya</title>
 	</head>
-	<body>
-		<main class="p-8">
+
+	<body class="mx-auto max-w-7xl">
+		<main class="px-4 pt-8 md:px-8">
 			<a href="/">
-				<h1 class="px-10 mb-5 text-2xl font-semibold">sarah otoya</h1>
+				<h1 class="px-8 mb-5 text-2xl font-semibold md:px-10">sarah otoya</h1>
 			</a>
 			<slot />
 		</main>
 	</body>
-	<footer class="flex flex-col sm:flex-row sm:justify-between px-[4.5rem]">
+	<footer
+		class="flex pt-8 pb-10 flex-col sm:flex-row sm:justify-between px-14 md:px-[4.5rem]"
+	>
 		<div>
-			<p class="font-semibold">sarah otoya • designer</p>
+			<a href="/">
+				<p class="font-semibold">sarah otoya • designer</p>
+			</a>
 			<p class="text-[#272727]/50">website coded by my husband</p>
 		</div>
 		<div class="flex gap-2">
@@ -47,6 +52,7 @@ const links = [
 		</div>
 	</footer>
 </html>
+
 <style is:global>
 	html {
 		font-family: system-ui, sans-serif;

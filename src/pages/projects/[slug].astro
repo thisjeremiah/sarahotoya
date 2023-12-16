@@ -44,21 +44,22 @@ const Article = await article.render();
       </div>
     </section>
     <article
-      class="max-w-prose mx-auto whitespace-pre-line [&_p:has(img)]:flex [&_p:has(img)]:justify-center mt-3"
+      class="max-w-prose mx-auto whitespace-pre-line [&_p:has(img)]:flex [&_p:has(img)]:justify-center mt-3 p-10"
     >
       <Article.Content />
-      <div class="flex justify-center mt-10 gap-4">
-        {
-          articles.map((item) => (
-            <a
-              href={`/projects/${item.slug.split("/")[0]}`}
-              class="inline-block underline"
-            >
-              {item.data.title}
-            </a>
-          ))
-        }
-      </div>
     </article>
+  </div>
+
+  <div class="flex justify-center mt-10 gap-4">
+    {
+      articles.map((item) => (
+        <a
+          href={`/projects/${item.slug.split("/")[0]}`}
+          class="inline-block underline"
+        >
+          {item.data.title}
+        </a>
+      ))
+    }
   </div>
 </Layout>
