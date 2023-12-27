@@ -93,7 +93,7 @@ const otherWorkSection = {
 			id="about"
 			class="p-8 bg-yellow-100 xl:w-third md:w-half xl:order-1 md:order-1 md:p-10 rounded-50"
 		>
-			<h2 class="mb-4 text-lg font-medium">{aboutSection.title}</h2>
+			<h2 class="mb-4 font-kopik text-lg font-medium">{aboutSection.title}</h2>
 			<p class="[&>a]:underline" set:html={aboutSection.description} />
 		</section>
 
@@ -101,7 +101,7 @@ const otherWorkSection = {
 			id="selected-work"
 			class="xl:w-third md:w-half md:order-2 xl:order-2"
 		>
-			<h2 class="px-8 mb-4 text-lg font-medium">
+			<h2 class="px-8 mb-4 font-kopik text-lg font-medium">
 				{selectedWorkSection.title}
 			</h2>
 			{
@@ -124,7 +124,7 @@ const otherWorkSection = {
 			id="resume"
 			class="flex flex-col p-10 bg-yellow-100 xl:w-third md:w-half md:order-1 xl:order-3 rounded-50"
 		>
-			<h2 class="mb-4 text-lg font-medium">{resumeSection.title}</h2>
+			<h2 class="mb-4 text-lg font-kopik font-medium">{resumeSection.title}</h2>
 			{
 				resumeSection.jobs.map((job) => (
 					<div class="flex justify-between mb-3">
@@ -145,7 +145,9 @@ const otherWorkSection = {
 			id="fun-stuff"
 			class="p-10 bg-yellow-100 xl:w-third md:w-half md:order-1 xl:order-1 rounded-50"
 		>
-			<h2 class="mb-4 text-lg font-medium">{funStuffSection.title}</h2>
+			<h2 class="mb-4 text-lg font-kopik font-medium">
+				{funStuffSection.title}
+			</h2>
 			<div class="flex flex-wrap md:flex-col gap-6">
 				{
 					funStuffSection.stuff.map((stuff) => (
@@ -166,7 +168,9 @@ const otherWorkSection = {
 			id="other-work"
 			class="flex-1 p-10 bg-yellow-100 xl:w-third md:w-half md:order-2 xl:order-3 rounded-50"
 		>
-			<h2 class="mb-4 text-lg font-medium">{otherWorkSection.title}</h2>
+			<h2 class="mb-4 text-lg font-kopik font-medium">
+				{otherWorkSection.title}
+			</h2>
 			<div class="flex flex-col gap-4">
 				{
 					otherWorkSection.work.map((work) => (

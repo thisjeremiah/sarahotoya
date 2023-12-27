@@ -13,6 +13,10 @@ export default {
 				400: '#272727',
 			},
 		},
+		fontFamily: {
+			'kopik': ['kopik', 'sans-serif'],
+			'sans': ['neulis-sans', 'sans-serif'],
+		},
 		extend: {
 			borderRadius: {
 				'50': '3.125rem' // 50px
