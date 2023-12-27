@@ -1,6 +1,6 @@
 ---
 title: documenting the design system
-description: documenting the design system
+description: documenting + auditing the design system
 company: barre3
 
 ---
