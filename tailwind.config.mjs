@@ -19,5 +19,16 @@ export default {
 			}
 		},
 	},
-	plugins: [],
+	plugins: [
+		function ({addComponents}) {
+			addComponents({
+				'.w-half': {
+					width: 'calc(50% - 1rem)',
+				},
+				'.w-third': {
+					width: 'calc(33.333333% - 1rem)',
+				},
+			});
+		},
+	],
 }
