@@ -17,6 +17,7 @@ coolors contrast checker
 ### design system inspiration
 
 material design
-atlassian seeds (sprout social)
+atlassian
+seeds (sprout social)
 polaris (shopify)
 mailchimp pattern library

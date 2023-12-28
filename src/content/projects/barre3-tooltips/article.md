@@ -1,6 +1,6 @@
 ---
 title: building a tooltips flow
-description: developing a digital brand style guide
+description: building a product tooltips flow
 company: barre3
 
 ---

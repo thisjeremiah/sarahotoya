@@ -8,7 +8,7 @@ const links = [
 		target: "_blank",
 	},
 	{
-		title: "contact",
+		title: "contact me",
 		link: "mailto:skracker@gmail.com",
 		target: "_blank",
 	},
@@ -36,7 +36,7 @@ const links = [
 
 	<body class="mx-auto font-sans max-w-7xl">
 		<main class="px-4 pt-8 md:px-8">
-			<h1 class="mb-5 ml-8 text-2xl font-bold font-kopik w-fit md:ml-10">
+			<h1 class="mb-5 ml-8 text-3xl font-bold font-kopik w-fit md:ml-10">
 				<a href="/"> sarah otoya</a>
 			</h1>
 			<slot />
@@ -51,7 +51,7 @@ const links = [
 				<p class="text-[#272727]/50">website coded by my husband</p>
 			</div>
 
-			<div class="flex gap-2">
+			<div class="flex gap-5">
 				{
 					links.map((link) => (
 						<a href={link.link} target={link.target} class="underline">

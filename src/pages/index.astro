@@ -93,7 +93,7 @@ const otherWorkSection = {
 			id="about"
 			class="p-8 bg-yellow-100 xl:w-third md:w-half xl:order-1 md:order-1 md:p-10 rounded-50"
 		>
-			<h2 class="mb-4 font-kopik text-lg font-medium">{aboutSection.title}</h2>
+			<h2 class="mb-4 text-lg font-medium font-kopik">{aboutSection.title}</h2>
 			<p class="[&>a]:underline" set:html={aboutSection.description} />
 		</section>
 
@@ -101,7 +101,7 @@ const otherWorkSection = {
 			id="selected-work"
 			class="xl:w-third md:w-half md:order-2 xl:order-2"
 		>
-			<h2 class="px-8 mb-4 font-kopik text-lg font-medium">
+			<h2 class="px-8 mb-4 text-lg font-medium font-kopik">
 				{selectedWorkSection.title}
 			</h2>
 			{
@@ -114,7 +114,9 @@ const otherWorkSection = {
 							<h3 class="text-base font-medium">{work.company}</h3>
 							<p class="">{work.title}</p>
 						</div>
-						<ArrowIcon />
+						<div>
+							<ArrowIcon />
+						</div>
 					</a>
 				))
 			}
@@ -124,19 +126,22 @@ const otherWorkSection = {
 			id="resume"
 			class="flex flex-col p-10 bg-yellow-100 xl:w-third md:w-half md:order-1 xl:order-3 rounded-50"
 		>
-			<h2 class="mb-4 text-lg font-kopik font-medium">{resumeSection.title}</h2>
+			<h2 class="mb-4 text-lg font-medium font-kopik">{resumeSection.title}</h2>
 			{
 				resumeSection.jobs.map((job) => (
 					<div class="flex justify-between mb-3">
 						<div>
 							<h3 class="text-base font-medium">{job.company}</h3>
-							<p class="text-sm">{job.role}</p>
+							<p class="text-base">{job.role}</p>
 						</div>
-						<p class="text-sm">{job.date}</p>
+						<p class="text-base">{job.date}</p>
 					</div>
 				))
 			}
-			<a class="font-light text-right underline" href={resumeSection.link.url}>
+			<a
+				class="text-base font-light text-right underline"
+				href={resumeSection.link.url}
+			>
 				{resumeSection.link.text}
 			</a>
 		</section>
@@ -145,18 +150,18 @@ const otherWorkSection = {
 			id="fun-stuff"
 			class="p-10 bg-yellow-100 xl:w-third md:w-half md:order-1 xl:order-1 rounded-50"
 		>
-			<h2 class="mb-4 text-lg font-kopik font-medium">
+			<h2 class="mb-4 text-lg font-medium font-kopik">
 				{funStuffSection.title}
 			</h2>
-			<div class="flex flex-wrap md:flex-col gap-6">
+			<div class="flex flex-col gap-4">
 				{
 					funStuffSection.stuff.map((stuff) => (
 						<a
 							href={stuff.link}
 							target={stuff.target}
-							class="flex flex-col items-center justify-center flex-1 w-40 h-40 p-4 mb-3 bg-yellow-500 md:w-full group gap-4 rounded-50 hover:bg-yellow-700 transition-colors"
+							class="flex items-center justify-between px-8 py-6 mb-3 bg-yellow-500 group gap-4 rounded-50 hover:bg-yellow-700 transition-colors"
 						>
-							<p class="text-base font-medium text-center">{stuff.title}</p>
+							<p class="text-base font-medium">{stuff.title}</p>
 							<ArrowIcon class="transition-colors group-hover:text-yellow-500" />
 						</a>
 					))
@@ -168,7 +173,7 @@ const otherWorkSection = {
 			id="other-work"
 			class="flex-1 p-10 bg-yellow-100 xl:w-third md:w-half md:order-2 xl:order-3 rounded-50"
 		>
-			<h2 class="mb-4 text-lg font-kopik font-medium">
+			<h2 class="mb-4 text-lg font-medium font-kopik">
 				{otherWorkSection.title}
 			</h2>
 			<div class="flex flex-col gap-4">
