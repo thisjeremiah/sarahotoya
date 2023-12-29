@@ -1,6 +1,6 @@
 ---
 import { getCollection } from "astro:content";
-import Layout from "../layouts/Layout.astro";
+import Layout, { links } from "../layouts/Layout.astro";
 import ArrowIcon from "../components/ArrowIcon.astro";
 
 const articles = await getCollection("projects", (item) =>
@@ -9,17 +9,19 @@ const articles = await getCollection("projects", (item) =>
 
 const aboutSection = {
 	title: "about",
-	description: `Hello! My name is Sarah and I’m a designer currently living in Portland, Oregon.<br/><br/>I like to create aesthetically pleasing and highly functional online experiences. I’m interested in UI design, high-fidelity prototypes, scalable systems, and a well-organized workspace.<br/><br/>When I’m not doing my day job, I can be found working on my novel, playing video games, or brewing tea.<br/><br/><a href="mailto:skracker@gmail.com" target="_blank">Say hello!</a>`,
+	description: `Hello! My name is Sarah and I’m a designer currently living in Portland, Oregon.<br/><br/>I like to create aesthetically pleasing and highly functional online experiences. I’m interested in UI design, high-fidelity prototypes, scalable systems, and a well-organized workspace.<br/><br/>When I’m not doing my day job, I can be found working on my novel, playing video games, or brewing tea.<br/><br/><a href="${links[1].link}" target="_blank">Say hello!</a>`,
 };
 
 const selectedWorkSection = {
 	title: "selected work",
-	works: articles.map((article) => ({
-		company: article.data.company,
-		title: article.data.description,
-		link: `/projects/${article.slug.split("/")[0]}`,
-		slug: article.slug.split("/")[0],
-	})),
+	works: articles
+		.sort((a, b) => a.data.order - b.data.order)
+		.map((article) => ({
+			company: article.data.company,
+			title: article.data.description,
+			link: `/projects/${article.slug.split("/")[0]}`,
+			slug: article.slug.split("/")[0],
+		})),
 };
 
 const resumeSection = {
@@ -48,7 +50,8 @@ const resumeSection = {
 	],
 	link: {
 		text: "see full resume",
-		url: "/resume",
+		url: "/sarah-resume.pdf",
+		target: "_blank",
 	},
 };
 
@@ -99,7 +102,7 @@ const otherWorkSection = {
 
 		<section
 			id="selected-work"
-			class="xl:w-third md:w-half md:order-2 xl:order-2"
+			class="xl:w-third md:w-half md:order-2 xl:order-2 md:mt-10"
 		>
 			<h2 class="px-8 mb-4 text-lg font-medium font-kopik">
 				{selectedWorkSection.title}
@@ -108,7 +111,7 @@ const otherWorkSection = {
 				selectedWorkSection.works.map((work) => (
 					<a
 						href={work.link}
-						class="flex items-center justify-between px-8 py-6 mb-5 border-2 border-yellow-500 gap-16 rounded-50 group hover:border-yellow-700 transition-colors focus:border-yellow-700 focus:outline-none"
+						class="flex items-center justify-between h-32 px-8 py-6 mb-5 border-2 border-yellow-500 gap-16 rounded-50 group hover:border-yellow-700 transition-colors focus:border-yellow-700 focus:outline-none"
 					>
 						<div>
 							<h3 class="text-base font-medium">{work.company}</h3>
@@ -141,6 +144,7 @@ const otherWorkSection = {
 			<a
 				class="text-base font-light text-right underline"
 				href={resumeSection.link.url}
+				target={resumeSection.link.target}
 			>
 				{resumeSection.link.text}
 			</a>
@@ -159,10 +163,10 @@ const otherWorkSection = {
 						<a
 							href={stuff.link}
 							target={stuff.target}
-							class="flex items-center justify-between px-8 py-6 mb-3 bg-yellow-500 group gap-4 rounded-50 hover:bg-yellow-700 transition-colors"
+							class="flex items-center justify-between px-8 py-6 mb-3 bg-yellow-500 group gap-4 rounded-50 hover:bg-yellow-600 transition-colors"
 						>
 							<p class="text-base font-medium">{stuff.title}</p>
-							<ArrowIcon class="transition-colors group-hover:text-yellow-500" />
+							<ArrowIcon class="transition-colors group-hover:text-yellow-100" />
 						</a>
 					))
 				}
@@ -182,10 +186,10 @@ const otherWorkSection = {
 						<a
 							href={work.link}
 							target={work.target}
-							class="flex items-center justify-between px-8 py-6 mb-3 bg-yellow-500 group gap-4 rounded-50 hover:bg-yellow-700 transition-colors"
+							class="flex items-center justify-between px-8 py-6 mb-3 bg-yellow-500 group gap-4 rounded-50 hover:bg-yellow-600 transition-colors"
 						>
 							<p class="text-base font-medium">{work.title}</p>
-							<ArrowIcon class="transition-colors group-hover:text-yellow-500" />
+							<ArrowIcon class="transition-colors group-hover:text-yellow-100" />
 						</a>
 					))
 				}

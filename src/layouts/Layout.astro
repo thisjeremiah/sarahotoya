@@ -1,7 +1,7 @@
 ---
 import { ViewTransitions } from "astro:transitions";
 
-const links = [
+export const links = [
 	{
 		title: "linkedin",
 		link: "https://www.linkedin.com/in/sarah-r-8676a0103/",
@@ -9,7 +9,7 @@ const links = [
 	},
 	{
 		title: "contact me",
-		link: "mailto:skracker@gmail.com",
+		link: "mailto:skracker@gmail.com?subject=re:%20your%20website&body=Hi%20Sarah!",
 		target: "_blank",
 	},
 ];
@@ -34,7 +34,7 @@ const links = [
 		<ViewTransitions />
 	</head>
 
-	<body class="mx-auto font-sans max-w-7xl">
+	<body class="mx-auto font-sans max-w-7xl text-black-400">
 		<main class="px-4 pt-8 md:px-8">
 			<h1 class="mb-5 ml-8 text-3xl font-bold font-kopik w-fit md:ml-10">
 				<a href="/"> sarah otoya</a>
@@ -48,7 +48,7 @@ const links = [
 				<a href="/">
 					<p class="font-semibold font-kopik">sarah otoya • designer</p>
 				</a>
-				<p class="text-[#272727]/50">website coded by my husband</p>
+				<p class="text-black-400/50">website coded by my husband</p>
 			</div>
 
 			<div class="flex gap-5">

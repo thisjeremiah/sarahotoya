@@ -2,12 +2,13 @@
 title: building a tooltips flow
 description: building a product tooltips flow
 company: barre3
+order: 4
 
 ---
 
 ![img](./schedule_sent.jpg)
 
-<div class="flex items-center gap-8">
+<div class="items-center md:flex gap-8">
   <div class="flex-1">
   I started first with competitive analysis and inspiration for tooltip design. Examples on both desktop and mobile tended to highlight focus areas and use interruptive text overlays to communicate blurbs of information with a friendly, eye-catching design.
   </div>
@@ -33,11 +34,12 @@ We started with an ingress point that would present after a user completed or op
 
 Once the ingress point was engaged with, the tooltips flow would begin. I designed these to fit within barre3’s existing design system, creating progress indicators and friendly circle toggles to navigate the flow.
 
-<div class="flex gap-8">
+<div class="md:flex gap-8">
 
   <div class="flex-1">
 
   ![img](./tooltip_mobile.jpg)
+
   </div>
 
   <div class="flex-1">

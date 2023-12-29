@@ -6,6 +6,7 @@ export default {
 			yellow: {
 				100: '#FFFDF7',
 				500: "#FFF4D1",
+				600: '#FFE591',
 				700: "#F8D561"
 			},
 			black: {
