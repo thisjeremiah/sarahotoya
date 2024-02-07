@@ -3,6 +3,7 @@ title: documenting the design system
 description: documenting + auditing the design system
 company: barre3
 order: 3
+thumbnail: "./pattern.jpg"
 
 ---
 

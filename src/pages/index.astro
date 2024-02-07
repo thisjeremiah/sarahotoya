@@ -2,6 +2,7 @@
 import { getCollection } from "astro:content";
 import Layout, { links } from "../layouts/Layout.astro";
 import ArrowIcon from "../components/ArrowIcon.astro";
+import { Image } from "astro:assets";
 
 const articles = await getCollection("projects", (item) =>
 	item.slug.endsWith("/article"),
@@ -9,7 +10,7 @@ const articles = await getCollection("projects", (item) =>
 
 const aboutSection = {
 	title: "about",
-	description: `Hello! My name is Sarah and I’m a designer currently living in Portland, Oregon.<br/><br/>I like to create aesthetically pleasing and highly functional online experiences. I’m interested in UI design, high-fidelity prototypes, scalable systems, and a well-organized workspace.<br/><br/>When I’m not doing my day job, I can be found working on my novel, playing video games, or brewing tea.<br/><br/><a href="${links[1].link}" target="_blank">Say hello!</a>`,
+	description: `Hello! My name is Sarah and I’m a designer currently living in Portland, Oregon.<br/><br/> I like to create <b>aesthetically pleasing</b> and <b>highly functional</b> online experiences. I’m interested in UI design, high-fidelity prototypes, scalable systems, and a well-organized workspace.<br/><br/> When I’m not doing my day job, I can be found working on my novel&nbsp;✍🏼, playing video games&nbsp;🎮, or brewing tea&nbsp;🍵.<br/><br/><a href="${links[1].link}" target="_blank">Say hello!</a>`,
 };
 
 const selectedWorkSection = {
@@ -21,6 +22,7 @@ const selectedWorkSection = {
 			title: article.data.description,
 			link: `/projects/${article.slug.split("/")[0]}`,
 			slug: article.slug.split("/")[0],
+			thumbnail: article.data.thumbnail,
 		})),
 };
 
@@ -97,7 +99,10 @@ const otherWorkSection = {
 			class="p-8 bg-yellow-100 xl:w-third md:w-half xl:order-1 md:order-1 md:p-10 rounded-50"
 		>
 			<h2 class="mb-4 text-lg font-medium font-kopik">{aboutSection.title}</h2>
-			<p class="[&>a]:underline" set:html={aboutSection.description} />
+			<p
+				class="[&>a]:underline [&>b]:font-medium hover:[&>a]:text-yellow-700 [&>a]:transition-colors"
+				set:html={aboutSection.description}
+			/>
 		</section>
 
 		<section
@@ -107,22 +112,30 @@ const otherWorkSection = {
 			<h2 class="px-8 mb-4 text-lg font-medium font-kopik">
 				{selectedWorkSection.title}
 			</h2>
-			{
-				selectedWorkSection.works.map((work) => (
-					<a
-						href={work.link}
-						class="flex items-center justify-between h-32 px-8 py-6 mb-5 border-2 border-yellow-500 gap-16 rounded-50 group hover:border-yellow-700 transition-colors focus:border-yellow-700 focus:outline-none"
-					>
-						<div>
-							<h3 class="text-base font-medium">{work.company}</h3>
-							<p class="">{work.title}</p>
-						</div>
-						<div>
-							<ArrowIcon />
-						</div>
-					</a>
-				))
-			}
+			<div class="flex flex-col pt-8 gap-12">
+				{
+					selectedWorkSection.works.map((work) => (
+						<a
+							href={work.link}
+							class="flex items-center justify-between h-32 py-6 mb-5 border-2 border-yellow-500 odd:border-l-0 even:border-r-0 even:pl-8 odd:pr-8 odd:flex-row-reverse gap-16 rounded-50 group hover:border-yellow-700 transition-colors focus:border-yellow-700 focus:outline-none"
+						>
+							<div>
+								<h3>{work.company}</h3>
+								<p class="text-base font-medium group-hover:underline decoration-yellow-700">
+									{work.title}
+								</p>
+							</div>
+							<div class="flex-shrink-0">
+								<Image
+									class="object-contain w-32 bg-yellow-700 rounded-3xl group-hover:group-odd:-rotate-3 group-hover:rotate-3 transition-transform"
+									src={work.thumbnail}
+									alt=""
+								/>
+							</div>
+						</a>
+					))
+				}
+			</div>
 		</section>
 
 		<section
@@ -142,7 +155,7 @@ const otherWorkSection = {
 				))
 			}
 			<a
-				class="text-base font-light text-right underline"
+				class="text-base font-light text-right underline hover:text-yellow-700 transition-colors"
 				href={resumeSection.link.url}
 				target={resumeSection.link.target}
 			>

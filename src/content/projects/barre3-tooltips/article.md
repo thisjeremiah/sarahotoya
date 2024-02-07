@@ -3,6 +3,7 @@ title: building a tooltips flow
 description: building a product tooltips flow
 company: barre3
 order: 4
+thumbnail: ./personalized_program.jpg
 
 ---
 

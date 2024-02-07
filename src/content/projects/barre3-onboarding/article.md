@@ -3,6 +3,7 @@ title: updating user onboarding
 description: creating a new onboarding experience
 company: barre3
 order: 2
+thumbnail: ./lady.jpg
 
 ---
 

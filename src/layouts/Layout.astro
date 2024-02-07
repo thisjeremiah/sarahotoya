@@ -36,8 +36,11 @@ export const links = [
 
 	<body class="mx-auto font-sans max-w-7xl text-black-400">
 		<main class="px-4 pt-8 md:px-8">
-			<h1 class="mb-5 ml-8 text-3xl font-bold font-kopik w-fit md:ml-10">
-				<a href="/"> sarah otoya</a>
+			<h1 class="mb-5 ml-8 text-4xl font-bold font-kopik w-fit md:ml-10">
+				<a class="group" href="/">
+					sarah <span class="inline-flex pb-2 animate-underline">racker</span>
+					 otoya
+				</a>
 			</h1>
 			<slot />
 		</main>
@@ -46,15 +49,21 @@ export const links = [
 		>
 			<div>
 				<a href="/">
-					<p class="font-semibold font-kopik">sarah otoya • designer</p>
+					<p class="font-semibold font-kopik">sarah racker otoya • designer</p>
 				</a>
-				<p class="text-black-400/50">website coded by my husband</p>
+				<p class="text-black-400/50">
+					website designed by me, coded by my husband
+				</p>
 			</div>
 
 			<div class="flex gap-5">
 				{
 					links.map((link) => (
-						<a href={link.link} target={link.target} class="underline">
+						<a
+							href={link.link}
+							target={link.target}
+							class="underline hover:text-yellow-700 transition-colors"
+						>
 							{link.title}
 						</a>
 					))
@@ -62,8 +71,29 @@ export const links = [
 			</div>
 		</footer>
 		<style is:global>
-			html {
-				font-family: system-ui, sans-serif;
+			.animate-underline {
+				overflow: hidden;
+				position: relative;
+			}
+
+			.animate-underline::after {
+				content: "";
+				position: absolute;
+				bottom: 0;
+				margin-top: 40px;
+				width: 100%;
+				height: 4px;
+				background-color: rgb(248 213 97);
+				transition:
+					opacity 300ms,
+					transform 300ms;
+				opacity: 1;
+				transform: translate3d(-100%, 0, 0);
+			}
+
+			.group:hover .animate-underline::after {
+				opacity: 1;
+				transform: translate3d(0, 0, 0);
 			}
 		</style>
 	</body>
