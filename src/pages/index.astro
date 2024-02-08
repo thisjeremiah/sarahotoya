@@ -18,7 +18,7 @@ const aboutSection = {
 const selectedWorkSection = {
 	title: "selected work",
 	works: articles
-		.sort((a, b) => a.data.order - b.data.order)
+		.sort((a, b) => a.data.order! - b.data.order!)
 		.map((article) => ({
 			company: article.data.company,
 			title: article.data.description,
@@ -136,7 +136,7 @@ const otherWorkSection = {
 							<div class="flex-shrink-0">
 								<Image
 									class="object-contain w-32 bg-yellow-700 rounded-3xl group-hover:group-odd:-rotate-3 group-hover:rotate-3 transition-transform"
-									src={work.thumbnail}
+									src={work.thumbnail!}
 									alt=""
 								/>
 							</div>
