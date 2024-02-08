@@ -38,31 +38,33 @@ export const links = [
 		<main class="px-4 pt-8 md:px-8">
 			<h1 class="mb-5 ml-8 text-4xl font-bold font-kopik w-fit md:ml-10">
 				<a class="group" href="/">
-					sarah <span class="inline-flex pb-2 animate-underline">racker</span>
+					sarah <span class="hidden pb-2 animate-underline sm:inline-flex"
+						>racker</span
+					>
 					 otoya
 				</a>
 			</h1>
 			<slot />
 		</main>
 		<footer
-			class="flex pt-8 pb-10 flex-col sm:flex-row sm:justify-between px-14 md:px-[4.5rem]"
+			class="flex pt-8 pb-10 flex-col gap-2 sm:flex-row sm:justify-between px-14 md:px-[4.5rem]"
 		>
 			<div>
 				<a href="/">
 					<p class="font-semibold font-kopik">sarah otoya • designer</p>
 				</a>
-				<p class="text-black-400/50">
-					website designed by me, coded by my husband
+				<p class="leading-tight text-black-400/50">
+					website designed by me<br />coded by my husband
 				</p>
 			</div>
 
-			<div class="flex gap-5">
+			<div class="flex items-end gap-5">
 				{
 					links.map((link) => (
 						<a
 							href={link.link}
 							target={link.target}
-							class="underline hover:text-yellow-700 transition-colors"
+							class="underline underline-offset-2 hover:text-yellow-700 transition-colors"
 						>
 							{link.title}
 						</a>

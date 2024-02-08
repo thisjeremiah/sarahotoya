@@ -108,7 +108,7 @@ const otherWorkSection = {
 		>
 			<h2 class="mb-4 text-lg font-medium font-kopik">{aboutSection.title}</h2>
 			<p
-				class="[&>a]:underline [&>b]:font-medium hover:[&>a]:text-yellow-700 [&>a]:transition-colors"
+				class="[&>a]:underline [&>a]:underline-offset-2 [&>b]:font-medium hover:[&>a]:text-yellow-700 [&>a]:transition-colors"
 				set:html={aboutSection.description}
 			/>
 		</section>
@@ -129,7 +129,7 @@ const otherWorkSection = {
 						>
 							<div>
 								<h3>{work.company}</h3>
-								<p class="text-base font-medium group-hover:underline decoration-yellow-700">
+								<p class="text-base font-medium group-hover:underline group-hover:underline-offset-2 decoration-yellow-700">
 									{work.title}
 								</p>
 							</div>
@@ -163,7 +163,7 @@ const otherWorkSection = {
 				))
 			}
 			<a
-				class="text-base font-light text-right underline hover:text-yellow-700 transition-colors"
+				class="text-base font-light text-right underline underline-offset-2 hover:text-yellow-700 transition-colors"
 				href={resumeSection.link.url}
 				target={resumeSection.link.target}
 			>
@@ -188,12 +188,12 @@ const otherWorkSection = {
 						>
 							<div class="bg-yellow-700 rounded-[24%]">
 								<Image
-									class="group-hover:grayscale-[25%] group-hover:opacity-90 contrast-50 rounded-[24%] transition-all"
+									class="group-hover:grayscale-[25%] group-hover:opacity-90 rounded-[24%] transition-all"
 									src={stuff.image}
 									alt=""
 								/>
 							</div>
-							<p class="absolute w-full text-base font-medium text-center text-yellow-100 underline group-hover:decoration-yellow-700 decoration-[transparent] transition-all">
+							<p class="absolute w-full text-base font-medium text-center text-yellow-100 underline underline-offset-2 group-hover:decoration-yellow-700 decoration-[transparent] transition-all">
 								{stuff.title}
 							</p>
 						</a>

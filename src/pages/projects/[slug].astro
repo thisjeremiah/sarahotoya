@@ -54,7 +54,7 @@ const Article = await article.render();
           articles.map((item) => (
             <a
               href={`/projects/${item.slug.split("/")[0]}`}
-              class="inline-block text-center underline underline-offset-2"
+              class="inline-block text-center underline underline-offset-2 hover:text-yellow-700 hover:decoration-yellow-700 transition-colors"
             >
               {item.data.title}
             </a>
