@@ -3,6 +3,8 @@ import { getCollection } from "astro:content";
 import Layout, { links } from "../layouts/Layout.astro";
 import ArrowIcon from "../components/ArrowIcon.astro";
 import { Image } from "astro:assets";
+import booksImg from "../assets/book.jpg";
+import flowersImg from "../assets/flowers.jpg";
 
 const articles = await getCollection("projects", (item) =>
 	item.slug.endsWith("/article"),
@@ -64,11 +66,13 @@ const funStuffSection = {
 			title: "my wedding",
 			link: "https://greenweddingshoes.com/colorful-multicultural-wedding-in-santa-barbara/",
 			target: "_blank",
+			image: flowersImg,
 		},
 		{
 			title: "goodreads",
 			link: "https://www.goodreads.com/user/show/18971444-sarah",
 			target: "_blank",
+			image: booksImg,
 		},
 	],
 };
@@ -92,7 +96,11 @@ const otherWorkSection = {
 
 <Layout>
 	<div
-		class="flex flex-col h-full p-2 md:max-h-[90rem] xl:max-h-[60rem] contain gap-4 md:flex-wrap"
+		class="flex flex-col h-full p-2 md:max-h-[90rem] xl:max-h-[60rem] gap-4 md:flex-wrap
+		before:basis-full after:basis-full
+		before:w-0 after:w-0
+		before:content-[''] after:content-['']
+		before:order-2 after:order-2"
 	>
 		<section
 			id="about"
@@ -170,16 +178,24 @@ const otherWorkSection = {
 			<h2 class="mb-4 text-lg font-medium font-kopik">
 				{funStuffSection.title}
 			</h2>
-			<div class="flex flex-col gap-4">
+			<div class="flex gap-6">
 				{
 					funStuffSection.stuff.map((stuff) => (
 						<a
 							href={stuff.link}
 							target={stuff.target}
-							class="flex items-center justify-between px-8 py-6 mb-3 bg-yellow-500 group gap-4 rounded-50 hover:bg-yellow-600 transition-colors"
+							class="relative flex items-center justify-center group"
 						>
-							<p class="text-base font-medium">{stuff.title}</p>
-							<ArrowIcon class="transition-colors group-hover:text-yellow-100" />
+							<div class="bg-yellow-700 rounded-[24%]">
+								<Image
+									class="group-hover:grayscale-[25%] group-hover:opacity-90 contrast-50 rounded-[24%] transition-all"
+									src={stuff.image}
+									alt=""
+								/>
+							</div>
+							<p class="absolute w-full text-base font-medium text-center text-yellow-100 underline group-hover:decoration-yellow-700 decoration-[transparent] transition-all">
+								{stuff.title}
+							</p>
 						</a>
 					))
 				}
@@ -201,8 +217,10 @@ const otherWorkSection = {
 							target={work.target}
 							class="flex items-center justify-between px-8 py-6 mb-3 bg-yellow-500 group gap-4 rounded-50 hover:bg-yellow-600 transition-colors"
 						>
-							<p class="text-base font-medium">{work.title}</p>
-							<ArrowIcon class="transition-colors group-hover:text-yellow-100" />
+							<p class="text-base font-medium group-hover:text-yellow-100 transition-colors">
+								{work.title}
+							</p>
+							<ArrowIcon class="transition-colors group-hover:text-yellow-100 group-hover:animate-bounce-x" />
 						</a>
 					))
 				}
