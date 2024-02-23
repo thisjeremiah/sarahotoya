@@ -12,6 +12,10 @@ content:
         type: string
       - name: order
         type: number
+      - name: company
+        type: string
+      - name: thumbnail
+        type: image
       - name: body
         label: Body
         type: rich-text
