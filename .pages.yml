@@ -3,6 +3,8 @@ content:
     label: Projects
     path: src/content/projects
     type: collection
+    view:
+      fields: [ title, description, order ]
     fields: 
       - name: title
         type: string
