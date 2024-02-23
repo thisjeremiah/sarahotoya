@@ -1,0 +1,8 @@
+content:
+  - name: projects
+    label: Projects
+    path: src/content/projects
+    type: collection
+    fields: 
+      - name: title
+        type: string
