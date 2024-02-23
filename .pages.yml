@@ -5,7 +5,7 @@ content:
     path: src/content/projects
     type: collection
     view:
-      fields: [ title, description, order ]
+      fields: [ title, company ]
     fields: 
       - name: title
         label: Title
