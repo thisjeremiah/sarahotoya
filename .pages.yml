@@ -6,3 +6,7 @@ content:
     fields: 
       - name: title
         type: string
+      - name: description
+        type: string
+      - name: order
+        type: number
